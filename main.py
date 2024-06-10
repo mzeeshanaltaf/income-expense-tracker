@@ -79,16 +79,9 @@ if selected == "Data Entry":
 # ----PLOT PERIOD----
 if selected == "Data Visualization":
     st.header("Data Visualization")
-    # Display progress bar as loading data from DB takes time
-    progress_bar = st.progress(0)
-    for i in range(100):
-        # Update progress bar.
-        progress_bar.progress(i + 1, text='Loading...')
-        time.sleep(0.01)
-
     with st.form("save_periods"):
-        period = st.selectbox("Select Period", get_all_periods())
-        progress_bar.empty()  # Clear the bar once data is loaded
+        with st.spinner('Processing ...'):
+            period = st.selectbox("Select Period", get_all_periods())
         submitted = st.form_submit_button("Plot Period")
         if submitted:
             period_data = get_period(period)
