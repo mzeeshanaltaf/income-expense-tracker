@@ -12,7 +12,7 @@ mongodb_cloud_db_key = os.environ.get('MONGODB_CLOUD_DB_KEY')
 def mongodb_connection():
     # Establish Connection with MongoDB
     client = pymongo.MongoClient(
-        f"mongodb+srv://altafz:uvc3Y6W9KIAnpFJI@zeeshan.ybtmt9f.mongodb.net/?retryWrites=true&w=majority&appName=zeeshan")
+        f"mongodb+srv://altafz:{mongodb_cloud_db_key}@zeeshan.ybtmt9f.mongodb.net/?retryWrites=true&w=majority&appName=zeeshan")
     return client
 
 
