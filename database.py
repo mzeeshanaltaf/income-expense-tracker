@@ -1,6 +1,7 @@
 import pymongo
 from dotenv import load_dotenv
 import os
+import streamlit as st
 
 load_dotenv()
 mongodb_cloud_db_key = os.environ.get('MONGODB_CLOUD_DB_KEY')
@@ -10,6 +11,7 @@ mongodb_cloud_db_key = os.environ.get('MONGODB_CLOUD_DB_KEY')
 
 def mongodb_connection():
     # Establish Connection with MongoDB
+    st.write('mongodb_cloud_db_key')
     client = pymongo.MongoClient(
         f"mongodb+srv://altafz:{mongodb_cloud_db_key}@zeeshan.ybtmt9f.mongodb.net/?retryWrites=true&w=majority&appName=zeeshan")
     return client
